@@ -4,13 +4,13 @@ import { useMoralis } from 'react-moralis';
 
 function Login() {
 
-  const { authenticate } = useMoralis();
+  const { authenticate, isAuthenticating } = useMoralis();
 
   return <div className='bg-black relative'>
       <div className='flex flex-col absolute z-50 h-screen items-center justify-center w-full'>
         <button
         onClick={authenticate}
-        className='bg-yellow-500 rounded-lg p-5 font-bold'>Login using MetaMask</button>
+        className='bg-yellow-500 rounded-lg p-5 font-bold'>{ isAuthenticating ? 'Authenticating...' : 'Login using MetaMask'}</button>
       </div>
       <div className='w-full h-screen'>
         <Image
