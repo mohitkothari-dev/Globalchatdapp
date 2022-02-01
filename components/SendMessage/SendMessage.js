@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMoralis } from 'react-moralis';
 
-function SendMessage() {
+function SendMessage({ endOfMessages }) {
 
     const {user,Moralis} = useMoralis();
     const [message, setMessage] = useState("");
@@ -24,10 +24,11 @@ function SendMessage() {
             console.log(error.message);
         } 
         );
+        endOfMessages.current.scrollIntoView({ behavior: 'smooth' });
         setMessage("");
     }
 
-  return <form className='flex fixed bottom-5 bg-black opacity-80 w-11/12 px-3 py-2 max-w-2xl shadow-xl rounded-full border-2 border-cyan-500'>
+  return <form className='flex fixed bottom-5 bg-black opacity-80 w-11/12 px-6 py-2 max-w-2xl shadow-xl rounded-full border-2 border-cyan-500'>
       <input 
       className='flex-grow outline-none bg-transparent text-white placeholder-cyan-500 pr-4' 
       placeholder={`Enter a Message ${user.getUsername()}...`}
