@@ -4,8 +4,14 @@ import Avatar from '../Avatar/Avatar';
 
 function Message({ message }) {
 
-  const {user} = useMoralis();
+  const {user, Moralis} = useMoralis();
+  const rec = message.get('ethAddress');
   const isUserMessage = message.get('ethAddress') === user.get('ethAddress');
+
+  const transferFunds = async () => {
+    await Moralis.enableWeb3();
+    await Moralis.transfer({native: "native", amount: Moralis.Units.ETH("0.001"), receiver: rec}); 
+  }
 
   return <div className={`flex items-end space-x-2 relative ${
     isUserMessage && 'justify-end'
@@ -13,7 +19,7 @@ function Message({ message }) {
 
     <div className={`relative h-8 w-8 ${
       isUserMessage && 'order-last ml-2'
-    }`}>
+    }`} onClick={()=> transferFunds()}>
       <Avatar username={message.get('username')}></Avatar>
     </div>
 
@@ -26,7 +32,7 @@ function Message({ message }) {
     <p className={`absolute -bottom-5 text-xs ${
       isUserMessage ? 'text-pink-300' : 'text-yellow-400'
     }`}>
-      {message.get('username')}
+      {message.get('username')} - {message.get('ethAddress')}
     </p>
   </div>;
 }
