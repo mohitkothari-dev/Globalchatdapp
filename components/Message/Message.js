@@ -32,7 +32,7 @@ function Message({ message }) {
     <p className={`absolute -bottom-5 text-xs ${
       isUserMessage ? 'text-pink-300' : 'text-yellow-400'
     }`}>
-      {message.get('username')} - {message.get('ethAddress')}
+      {message.get('username')} {/*- {message.get('ethAddress')}*/}
     </p>
   </div>;
 }

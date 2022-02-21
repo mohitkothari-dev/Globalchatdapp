@@ -28,9 +28,9 @@ function SendMessage({ endOfMessages }) {
         setMessage("");
     }
 
-  return <form className='flex fixed bottom-5 bg-black opacity-80 w-11/12 px-6 py-2 max-w-2xl shadow-xl rounded-full border-2 border-cyan-500'>
+  return <form className='flex fixed bottom-5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-80 w-11/12 px-6 py-2 max-w-2xl shadow-xl rounded-full border-none'>
       <input 
-      className='flex-grow outline-none bg-transparent text-white placeholder-cyan-500 pr-4' 
+      className='flex-grow outline-none bg-transparent text-white placeholder-white pr-4' 
       placeholder={`Enter a Message ${user.getUsername()}...`}
       type="text" 
       value={message}

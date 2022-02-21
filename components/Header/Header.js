@@ -8,7 +8,7 @@ function Header() {
   const { user } = useMoralis();
 
   return <div>
-      <div className='sticky top-0 p-5 z-50 bg-midnight_blue shadow-sm text-white border-b-2 border-gray-200'>
+      <div className='sticky top-0 p-5 z-50 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-sm text-white'>
         <div className='text-left lg:text-center'>
           <div className='relative h-32 w-32 lg:mx-auto'>
             <Avatar logoutOnPress ></Avatar>

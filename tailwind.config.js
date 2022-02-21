@@ -6,8 +6,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'wet_asphalt': '#576574',
-        'midnight_blue': '#2c3e50',
+        'wet_asphalt': '#fffbeb',
+        'midnight_blue': '#fcf3c2',
       }
     },
   },
